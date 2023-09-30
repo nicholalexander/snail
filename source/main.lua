@@ -35,6 +35,14 @@ function myGameSetUp()
     playerSprite:moveTo(200, 120) -- this is where the center of the sprite is placed; (200,120) is the center of the Playdate screen
     playerSprite:add()            -- This is critical!
 
+    -- create a new fileplayer object
+    local fileplayer = playdate.sound.fileplayer.new()
+
+    -- load the sound file
+    fileplayer:load("soundtrack/forest")
+
+    -- play the sound file
+    fileplayer:play()
     -- We want an environment displayed behind our sprite.
     -- There are generally two ways to do this:
     -- 1) Use setBackgroundDrawingCallback() to draw a background image. (This is what we're doing below.)
