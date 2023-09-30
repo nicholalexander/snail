@@ -44,22 +44,23 @@ function myGameSetUp()
     -- play the sound file
     fileplayer:play()
     -- We want an environment displayed behind our sprite.
+    -- We want an environment displayed behind our sprite.
     -- There are generally two ways to do this:
     -- 1) Use setBackgroundDrawingCallback() to draw a background image. (This is what we're doing below.)
     -- 2) Use a tilemap, assign it to a sprite with sprite:setTilemap(tilemap),
     --       and call :setZIndex() with some low number so the background stays behind
     --       your other sprites.
 
-    -- local backgroundImage = gfx.image.new("Images/background")
-    -- assert(backgroundImage)
+    local backgroundImage = gfx.image.new("images/forest_background")
+    assert(backgroundImage)
 
-    -- gfx.sprite.setBackgroundDrawingCallback(
-    --     function(x, y, width, height)
-    --         -- x,y,width,height is the updated area in sprite-local coordinates
-    --         -- The clip rect is already set to this area, so we don't need to set it ourselves
-    --         backgroundImage:draw(0, 0)
-    --     end
-    -- )
+    gfx.sprite.setBackgroundDrawingCallback(
+        function(x, y, width, height)
+            -- x,y,width,height is the updated area in sprite-local coordinates
+            -- The clip rect is already set to this area, so we don't need to set it ourselves
+            backgroundImage:draw(0, 0)
+        end
+    )
 end
 
 -- Now we'll call the function above to configure our game.
